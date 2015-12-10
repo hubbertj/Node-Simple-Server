@@ -10,7 +10,6 @@ angular.module('stockMarketApp').directive('simpleStockRepeat', [function() {
         // argument to the link function
         link: function($scope, $element, $attrs, ctrl, $transclude) {
 
-        	console.log(arguments);
         	
             var myArray = $scope.$eval($attrs.simpleStockRepeat);
 
@@ -31,7 +30,7 @@ angular.module('stockMarketApp').directive('simpleStockRepeat', [function() {
             // With transclude: 'element', the element gets replaced
             // with a comment. Add our generated content
             // after the comment
-            $element.after(container);
+            $element.append(container);
         }
     };
 }]);

@@ -1,20 +1,30 @@
-<!-- File: chapter13/directive-advanced-transclusion/index.html -->
+<!-- File: chapter13/directive-controllers/index.html -->
 <html>
 
 <head>
     <title>Stock Market App</title>
+    <link rel="stylesheet" href="main.css">
 </head>
 
 <body ng-app="stockMarketApp">
     <div ng-controller="MainCtrl as mainCtrl">
-        <h3>List of Stocks</h3>
-        <div simple-stock-repeat="mainCtrl.stocks">
-            We found {{stock.name}} at {{currentIndex}}
-        </div>
+        <tabs>
+            <tab title="First Tab">
+                This is the first tab. The app started at {{mainCtrl.startedTime | date}}
+            </tab>
+            <tab title="Second Tab">
+                This is the second tab
+                <div ng-repeat="stock in mainCtrl.stocks">
+                    Stock Name: {{stock.name}}
+                </div>
+            </tab>
+        </tabs>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.js">
+    </script>
+    <script src="app.js"></script>
+    <script src="tabs.js"></script>
+    <script src="tab.js"></script>
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.js"></script>
-<script src="app.js"></script>
-<script src="directive.js"></script>
 
 </html>
